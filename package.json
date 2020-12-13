@@ -1,0 +1,33 @@
+{
+  "name": "bookstore",
+  "version": "1.0.0",
+  "description": "BookStore is a MERN (MongoDB-Express-React-Node.js) Stack project. The aim is to develop an e-commerce website where books are sold.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ofkarakus/MERN-Stack-Project-BookStore.git"
+  },
+  "keywords": [
+    "Full-Stack",
+    "MongoDB",
+    "Express",
+    "React",
+    "Node.js"
+  ],
+  "author": "Omer Karakus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ofkarakus/MERN-Stack-Project-BookStore/issues"
+  },
+  "homepage": "https://github.com/ofkarakus/MERN-Stack-Project-BookStore#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
