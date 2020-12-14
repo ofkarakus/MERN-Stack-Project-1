@@ -1,16 +1,21 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
+const { validationResult } = require("express-validator");
 
 exports.sign_up = async (req, res) => {
-  // TODO: Register func.
   const { firstName, lastName, email, password } = req.body;
 
-  // TODO: validate the fields
+  const validationErr = validationResult(req);
 
-  // TODO: check already registered (email)
-  const userData = await User.findOne({ email });  // email: email
+  if (validationErr.errors.length > 0) {
+    return res.status(400).json({ errors: validationErr.array() });
+  }
+
+  const userData = await User.findOne({ email }); // email: email
   if (userData) {
-    return res.status(400).json({ errors: [{ message: "User already exists!" }] });
+    return res
+      .status(400)
+      .json({ errors: [{ message: "User already exists!" }] });
   }
 
   const salt = await bcrypt.genSalt(10);
