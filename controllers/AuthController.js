@@ -6,9 +6,13 @@ exports.sign_up = async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
 
   // TODO: validate the fields
-  // TODO: check already registered
 
-  // TODO: crypt password
+  // TODO: check already registered (email)
+  const userData = await User.findOne({ email });  // email: email
+  if (userData) {
+    return res.status(400).json({ errors: [{ message: "User already exists!" }] });
+  }
+
   const salt = await bcrypt.genSalt(10);
   const cryptedPassword = await bcrypt.hash(password, salt);
 
