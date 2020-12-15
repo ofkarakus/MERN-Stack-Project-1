@@ -25,6 +25,6 @@ router.use("/profile", ProfileRouter)
  *  @desc Route for Book
  */
 
-// router.use("/book", BookRouter)
+router.use("/books", BookRouter)
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const User = require("../models/UserModel");
 const bcrypt = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
@@ -71,7 +71,7 @@ exports.sign_in = async (req, res) => {
       if (err) {
         return res.status(400).json({ errors: [{ message: "Unknown Error" }] });
       }
-      res.send(token);
+      res.status(202).json({ token });
     }
   );
 };
