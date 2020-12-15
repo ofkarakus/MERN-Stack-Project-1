@@ -26,9 +26,19 @@ router.post(
 /**
  * @route POST "/api/auth/signin"
  * @desc Login endpoint
- * @access Private
+ * @access Public
  */
 
-router.post("/signin", AuthController.sign_in);
+router.post(
+  "/signin",
+  [
+    check("email", "Please enter a valid email!").isEmail(),
+    check(
+      "password",
+      "please enter a password with 6 and more chars."
+    ).isLength({ min: 6 }),
+  ],
+  AuthController.sign_in
+);
 
 module.exports = router;
